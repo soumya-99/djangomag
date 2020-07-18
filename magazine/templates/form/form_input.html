@@ -1,0 +1,38 @@
+{% extends 'form/base.html' %}
+
+{% load crispy_forms_tags %}
+
+<title>ম্যাগাজিন ফর্ম</title>
+
+{% block content %}
+<br>
+<form action="" method="POST" autocomplete="on">
+    {% csrf_token %}
+    {{form.storyname|as_crispy_field}}
+    <br>
+    {{form.authorname|as_crispy_field}}
+    <br>
+    {{form.content|as_crispy_field}}
+    <br>
+    {{form.content_type|as_crispy_field}}
+    <br>
+    {{form.edition|as_crispy_field}}
+    <br>
+    {{form.year|as_crispy_field}}
+    <br>
+
+    <div class="row">
+        <div class="col-md-8">
+            <button type="submit" class="btn btn-success btn-block btn-lg"><i class="fa fa-database" aria-hidden="true"></i> Submit</button>
+        </div>
+        <div class="col-md-4">
+            <a href="{% url 'index' %}" class="btn btn-danger btn-block btn-lg">
+                <i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i>
+                Go to Stories
+            </a>
+        </div>
+    </div>
+    <br><br>
+    
+</form>
+{% endblock content %}

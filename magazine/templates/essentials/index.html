@@ -1,0 +1,140 @@
+
+
+{% extends 'form/base.html' %}
+
+{% block content %}
+
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bong-Magazine</title>
+</head>
+<body>
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+<div class="container">
+
+  <div class="nav-scroller py-1 mb-2">
+    <nav class="nav d-flex justify-content-between">
+      <a class="p-2 link-secondary" href="{% url 'stories' %}">গল্প</a>
+      <a class="p-2 link-secondary" href="{% url 'poems' %}">কবিতা</a>
+      <a class="p-2 link-secondary" href="{% url 'rommo' %}">রম্যরচনা</a>
+    </nav>
+  </div>
+
+<br>
+  <div>
+    <div style="align-items: center;">
+      <img src="{% static 'images/flower.webp' %}" alt="image" style="width: 100%;">
+    </div>
+  </div>
+
+
+<br>
+
+  <div class="row mb-2">
+
+{% for all in ImportPage|slice:"2" %}
+    
+    <div class="col-md-6">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-primary">{{all.content_type}}</strong>
+          <h3 class="mb-0" id="titleid">{{all.storyname}}</h3>
+          <div class="mb-1 text-muted">{{all.authorname}}</div>
+          <p class="card-text mb-auto">{{all.content|truncatechars:100}}</p>
+          <a href="#" class="stretched-link">পড়া চালিয়ে যান...</a>
+        </div>
+        {% comment %}
+        <div class="col-auto d-none d-lg-block">
+
+          <img src="{% static 'images/Loboc_river.png' %}" alt="Loboc_river" class="bd-placeholder-img" width="200" height="250">
+
+        </div>
+        {% endcomment %}
+      </div>
+    </div>
+
+{% endfor %}
+
+  </div>
+</div>
+
+
+
+<main class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <h3 class="pb-4 mb-4 font-italic border-bottom">
+        আজকের বিশেষ লেখা
+      </h3>
+
+{% for all in ImportPage|slice:"5" %}
+
+      <div class="blog-post">
+        <h2 class="blog-post-title">{{all.storyname}}</h2>
+        <p class="blog-post-meta"><strong>বিভাগ :</strong> {{all.content_type}} || <a href="#">{{all.authorname}}</a></p>
+        <hr>
+
+        <p>{{all.content|linebreaks}}</p>
+      </div><!-- Blog 2 -->
+
+{% endfor %}
+
+      <nav class="blog-pagination">
+        <a class="btn btn-outline-primary" href="#">পুরনো</a>
+        <a class="btn btn-outline-secondary disabled" href="#" tabindex="-1" aria-disabled="true">নতুন</a>
+      </nav>
+
+    </div>
+
+    <aside class="col-md-4">
+      <div class="p-4 mb-3 bg-light rounded">
+        <h4 class="font-italic">আমরা কারা ?</h4>
+        <p class="mb-0">লরেম ইপ্সুম দলর সিত আমেত অদুয়্ঘ ধ দ দাহুইহে ধফ অফিয়েঘ্গ্ফ হ্ফ্য়্গ ইউয়্গ দ দাহুয়্গ্ফেগ ইউয়াগ্দে ব্লা ব্লা ব্লা .......</p>
+      </div>
+
+      <div class="p-4">
+        <h4 class="font-italic">আর্কাইভ</h4>
+        <hr>
+        <ol class="list-unstyled mb-0">
+          <li><a href="{% url 'winter' %}">শীতসংখ্যা</a></li>
+          <li><a href="{% url 'spring' %}">বসন্তসংখ্যা</a></li>
+          <li><a href="{% url 'rain' %}">বর্ষাসংখ্যা</a></li>
+          <li><a href="{% url 'puja' %}">শারদসংখ্যা</a></li>
+          <li><a href="{% url 'special' %}">বিশেষসংখ্যা</a></li>
+        </ol>
+      </div>
+
+      <div class="p-4">
+        <h4 class="font-italic">সমর্থন করুন</h4>
+        <hr>
+        <ol class="list-unstyled">
+          <li><a href="#">GitHub</a></li>
+          <li><a href="#">Twitter</a></li>
+          <li><a href="#">Facebook</a></li>
+        </ol>
+      </div>
+    </aside>
+
+  </div>
+
+</main>
+
+</body>
+</html>
+{% endblock content %}

@@ -1,0 +1,22 @@
+{% extends 'form/base.html' %}
+
+
+
+{% block content %}
+
+<h2 class="display-1" style="text-align: center;">রম্যরচনা সমগ্র</h2>
+<hr>
+
+{% for all in RommoRochona %}
+
+      <div class="blog-post">
+        <h2 class="blog-post-title">{{all.storyname}}</h2>
+        <p class="blog-post-meta"><strong>সাল :</strong> {{all.year}} || <a href="#">{{all.authorname}}</a></p>
+        <hr>
+
+        <p>{{all.content|linebreaks}}</p>
+      </div>
+
+{% endfor %}
+
+{% endblock content %}
