@@ -37,10 +37,10 @@
   </div>
 
 <br>
-{% for all in Images %}
+{% for img in Images %}
   <div>
     <div style="align-items: center;">
-      <img src="{{all.image.url}}" alt="image" style="width: 100%;">
+      <img src="{{img.image.url}}" alt="image" style="width: 100%;">
     </div>
   </div>
 {% endfor %}
@@ -58,7 +58,7 @@
           <h3 class="mb-0" id="titleid">{{all.storyname}}</h3>
           <div class="mb-1 text-muted">{{all.authorname}}</div>
           <p class="card-text mb-auto">{{all.content|truncatechars:100}}</p>
-          <a href="#" class="stretched-link">পড়া চালিয়ে যান...</a>
+          <a href="#">আরো পড়ুন...</a>
         </div>
         {% comment %}
         <div class="col-auto d-none d-lg-block">

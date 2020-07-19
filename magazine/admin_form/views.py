@@ -11,7 +11,7 @@ def ImportPage(request):
     return render(request, 'essentials/index.html', context)
 
 def ImageRetrieve(request):
-    Images = Image.objects.all()
+    Images = Image.objects.all().order_by('-id')
     return render(request,'essentials/index.html', {'Images': Images})
 
 def Stories(request):
