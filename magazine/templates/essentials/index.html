@@ -37,13 +37,13 @@
   </div>
 
 <br>
-
+{% for all in Images %}
   <div>
     <div style="align-items: center;">
-      <img src="{% static 'images/flower.webp' %}" alt="image" style="width: 100%;">
+      <img src="{{all.image.url}}" alt="image" style="width: 100%;">
     </div>
   </div>
-
+{% endfor %}
 
 <br>
 

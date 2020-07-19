@@ -1,77 +1,18 @@
 from django.shortcuts import render, redirect
-from .forms import *
+from .models import *
 
 # Create your views here.
 
 
 def ImportPage(request):
     context = {'ImportPage': All_Fields.objects.all().order_by('-id')}
+
     # contextLimit = {'ImportPage': All_Fields.objects.all().order_by('-id')[:5]}
     return render(request, 'essentials/index.html', context)
 
-def Admin_Form(request):
-    if (request.method == "GET"):
-        form = AdminForm()
-        return render(request, 'form/form_input.html', {'form': form})
-    else:
-        form = AdminForm(request.POST)
-        if form.is_valid():
-            form.save()
-
-        return redirect('/')
-
-# def Image_Form(request):
-#     if (request.method == "GET"):
-#         form = ImageForm()
-#         return render(request, 'form/image.html', {'form': form})
-#     else:
-#         form = ImageForm(request.POST, request.FILES)
-#         if form.is_valid():
-#             form.save()
-#             img_obj = form.instance
-#             return render(request, 'form/image.html', {'form': form, 'img_obj': img_obj})
-#         else:
-#             form = ImageForm()
-#         return render(request, 'essentials/index.html', {'form': form})
-
-
-def Image_Form(request):
-    """Process images uploaded by users"""
-    if request.method == 'POST':
-        form = ImageForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            return render(request, 'form/image.html', {'form': form})
-    else:
-        form = ImageForm()
-    return render(request, 'form/image.html', {'form': form})
-
-
-
-# def Image_Form(request):
-#     """Process images uploaded by users"""
-#     if request.method == 'POST':
-#         form = ImageForm(request.POST, request.FILES)
-#         if form.is_valid():
-#             form.save()
-#             # Get the current instance object to display in the template
-#             img_obj = form.instance
-#             return render(request, 'form/image.html', {'form': form, 'img_obj': img_obj})
-#     else:
-#         form = ImageForm()
-#     return render(request, 'form/image.html', {'form': form})
-
-
-
 def ImageRetrieve(request):
-    if request.method == 'GET':
-        # context = {'ImageRetrieve': Image.objects.all().order_by('-id')}
-        Images = Image.objects.all().order_by('-id')
-        return render(request,'essentials/index.html', {'imgs': Images})
-
-# def ImageRetrieve(request):
-#     img = Image.objects.filter(file_type='image').order_by('-id')
-#     return render(request,'essentials/index.html',{"img":img})
+    Images = Image.objects.all()
+    return render(request,'essentials/index.html', {'Images': Images})
 
 def Stories(request):
     context = {'Stories': All_Fields.objects.filter(content_type=2).order_by('-id')}
