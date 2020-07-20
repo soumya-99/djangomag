@@ -30,4 +30,4 @@ class All_Fields(models.Model):
 
 
 class Image(models.Model):
-    image = models.ImageField(upload_to='images', blank=True)
+    img = models.ImageField(upload_to='images', blank=True)

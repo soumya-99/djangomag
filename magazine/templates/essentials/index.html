@@ -37,10 +37,10 @@
   </div>
 
 <br>
-{% for img in Images %}
+{% for all in Images|slice:"1" %}
   <div>
     <div style="align-items: center;">
-      <img src="{{img.image.url}}" alt="image" style="width: 100%;">
+      <img src="{{all.img.url}}" alt="image" style="width: 100%;">
     </div>
   </div>
 {% endfor %}
@@ -49,7 +49,7 @@
 
   <div class="row mb-2">
 
-{% for all in ImportPage|slice:"2" %}
+{% for all in context|slice:"2" %}
     
     <div class="col-md-6">
       <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
@@ -84,7 +84,7 @@
         আজকের বিশেষ লেখা
       </h3>
 
-{% for all in ImportPage|slice:"5" %}
+{% for all in context|slice:"5" %}
 
       <div class="blog-post">
         <h2 class="blog-post-title">{{all.storyname}}</h2>

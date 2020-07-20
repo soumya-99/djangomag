@@ -5,14 +5,11 @@ from .models import *
 
 
 def ImportPage(request):
-    context = {'ImportPage': All_Fields.objects.all().order_by('-id')}
-
-    # contextLimit = {'ImportPage': All_Fields.objects.all().order_by('-id')[:5]}
-    return render(request, 'essentials/index.html', context)
-
-def ImageRetrieve(request):
+    context = All_Fields.objects.all().order_by('-id')
     Images = Image.objects.all().order_by('-id')
-    return render(request,'essentials/index.html', {'Images': Images})
+    # contextLimit = {'ImportPage': All_Fields.objects.all().order_by('-id')[:5]}
+    return render(request, 'essentials/index.html', {'context': context, 'Images': Images})
+
 
 def Stories(request):
     context = {'Stories': All_Fields.objects.filter(content_type=2).order_by('-id')}

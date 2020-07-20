@@ -3,7 +3,6 @@ from . import views
 
 urlpatterns = [
     path('', views.ImportPage, name='index'),
-    path('', views.ImageRetrieve, name='index'),
     path('rommorochona/', views.RommoRochona, name='rommo'),
     path('winter/', views.Winter, name='winter'),
     path('spring/', views.Spring, name='spring'),
