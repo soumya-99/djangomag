@@ -1,7 +1,20 @@
 from django.shortcuts import render, redirect
 from .models import *
+from .forms import *
 
 # Create your views here.
+
+def Subscribe(request):
+    if (request.method == "GET"):
+        form = SubscriptionForm()
+        return render(request, 'form/subscribe.html', {'form': form})
+    else:
+        form = SubscriptionForm(request.POST)
+        if form.is_valid():
+            form.save()
+
+        return redirect('/')
+
 
 
 def ImportPage(request):

@@ -5,3 +5,4 @@ from .models import *
 
 admin.site.register(All_Fields)
 admin.site.register(Image)
+admin.site.register(Subscription)
