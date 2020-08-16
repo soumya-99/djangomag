@@ -1,0 +1,18 @@
+{% extends 'form/base.html' %}
+
+
+
+{% block content %}
+
+<h2 class="display-1" style="text-align: center;">লেখক পরিচয়</h2>
+<hr>
+
+{% for all in AuthPage %}
+
+<h1> {{all.authName}} </h1>
+<img src="{{all.authImg.url}}" alt="image">
+<h2>{{all.description}}</h2>
+
+{% endfor %}
+
+{% endblock content %}

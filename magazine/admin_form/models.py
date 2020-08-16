@@ -21,6 +21,7 @@ class Content_Year(models.Model):
         return self.typeY
 
 class All_Fields(models.Model):
+    uniqueID = models.CharField(max_length=10)
     storyname = models.CharField(max_length=200)
     authorname = models.CharField(max_length=150)
     content = models.TextField()
@@ -38,3 +39,12 @@ class Subscription(models.Model):
 
     def __str__(self):
         return self.name
+
+class AuthDetails(models.Model):
+    uID = models.CharField(max_length=10)
+    authImg = models.ImageField(upload_to='authimgs', blank=True)
+    authName = models.CharField(max_length=150)
+    description = models.TextField()
+
+    def __str__(self):
+        return self.uID

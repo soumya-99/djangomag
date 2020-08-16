@@ -23,6 +23,9 @@ def ImportPage(request):
     # contextLimit = {'ImportPage': All_Fields.objects.all().order_by('-id')[:5]}
     return render(request, 'essentials/index.html', {'context': context, 'Images': Images})
 
+def AllAuths(request):
+    context = {'AllAuths': AuthDetails.objects.all().order_by('-id')}
+    return render(request, 'archives/allauthors.html', context)
 
 def Stories(request):
     context = {'Stories': All_Fields.objects.filter(content_type=2).order_by('-id')}
@@ -55,3 +58,7 @@ def Puja(request):
 def Special(request):
     context = {'Special': All_Fields.objects.filter(edition=5)}
     return render(request, 'archives/special.html', context)
+
+def AuthPage(request, my_id):
+    context = {'AuthPage': AuthDetails.objects.filter(uID=my_id)}
+    return render(request, 'essentials/authpage.html', context)

@@ -1,0 +1,14 @@
+{% extends 'form/base.html' %}
+
+
+
+{% block content %}
+
+{% for all in AllAuths %}
+
+<a href="{% url 'authpage' all.uID %}">{{all.authName}}</a>
+<br>
+
+{% endfor %}
+
+{% endblock %}
