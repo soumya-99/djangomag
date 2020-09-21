@@ -62,3 +62,6 @@ def Special(request):
 def AuthPage(request, my_id):
     context = {'AuthPage': AuthDetails.objects.filter(uID=my_id)}
     return render(request, 'essentials/authpage.html', context)
+
+def AboutUs(request):
+    return render(request, 'essentials/aboutus.html')

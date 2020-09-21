@@ -8,7 +8,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bong-Magazine</title>
+  <title>শব্দাশ্ব</title>
 </head>
 
 <body>
@@ -56,9 +56,9 @@
           <div class="col p-4 d-flex flex-column position-static">
             <strong class="d-inline-block mb-2 text-primary">{{all.content_type}}</strong>
             <h3 class="mb-0" id="titleid">{{all.storyname}}</h3>
-            <a href="{% url 'authpage' all.uniqueID %}" class="mb-1 text-muted">{{all.authorname}}</a>
+            <a href="{% url 'authpage' all.uniqueID %}" class="mb-1">{{all.authorname}}</a>
             <p class="card-text mb-auto">{{all.content|truncatechars:100}}</p>
-            <a href="#">আরো পড়ুন...</a>
+            <a href="#" class="text-muted">নীচে পড়ুন...</a>
           </div>
           {% comment %}
           <div class="col-auto d-none d-lg-block">
@@ -108,8 +108,8 @@
       <aside class="col-md-4">
         <div class="p-4 mb-3 bg-light rounded">
           <h4 class="font-italic">আমরা কারা ?</h4>
-          <p class="mb-0">লরেম ইপ্সুম দলর সিত আমেত অদুয়্ঘ ধ দ দাহুইহে ধফ অফিয়েঘ্গ্ফ হ্ফ্য়্গ ইউয়্গ দ দাহুয়্গ্ফেগ ইউয়াগ্দে
-            ব্লা ব্লা ব্লা .......</p>
+          <p class="mb-0">শব্দাশ্বের প্রয়োজন হয়ে পড়েছিল এই কারনে, যে আমরা চেয়েছিলাম একসাথে বহু প্রতিভাবান লেখকের আত্মপ্রকাশ</p>
+          <a href="{% url 'aboutus' %}" class="mb-1">আরো পড়ুন...</a>
         </div>
 
         <div class="p-4">
@@ -121,7 +121,7 @@
             <li><a href="{% url 'rain' %}">বর্ষাসংখ্যা</a></li>
             <li><a href="{% url 'puja' %}">শারদসংখ্যা</a></li>
             <li><a href="{% url 'special' %}">বিশেষসংখ্যা</a></li>
-            <li><a href="{% url 'allauths' %}">পাতার লেখকগণ</a></li>
+            <li><a href="{% url 'allauths' %}">পাতার লেখক/লেখিকাবৃন্দ</a></li>
           </ol>
         </div>
 

@@ -14,4 +14,5 @@ urlpatterns = [
     path('poems/', views.Poems, name='poems'),
     path('allathors/', views.AllAuths, name='allauths'),
     path('authpage/<my_id>/', views.AuthPage, name='authpage'),
+    path('aboutus/', views.AboutUs, name='aboutus'),
 ]

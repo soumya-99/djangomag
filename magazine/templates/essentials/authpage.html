@@ -9,9 +9,20 @@
 
 {% for all in AuthPage %}
 
-<h1> {{all.authName}} </h1>
-<img src="{{all.authImg.url}}" alt="image">
-<h2>{{all.description}}</h2>
+<div class="container">
+    <div class="avatar" style="width: 100px; margin: auto;">
+        <img src="{{all.authImg.url}}" alt="avatar" style="border-radius: 50%; height: 100%; width: 100%">
+    </div>
+</div>
+
+<div class="container" style="margin: auto; text-align: center; margin-top: 10px;">
+    <h1><strong> {{all.authName}} </strong></h1>
+    <hr>
+</div>
+<div class="container">
+    <span style="font-size: 20px; font-weight: bold; font-family: 'Galada', cursive;">লেখক/লেখিকা বিবরণ: </span><h4>{{all.description|linebreaks}}</h4>
+    <hr>
+</div>
 
 {% endfor %}
 
