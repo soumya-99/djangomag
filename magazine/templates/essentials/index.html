@@ -60,14 +60,6 @@
             <p class="card-text mb-auto">{{all.content|truncatechars:100}}</p>
             <a href="#" class="text-muted">নীচে পড়ুন...</a>
           </div>
-          {% comment %}
-          <div class="col-auto d-none d-lg-block">
-
-            <img src="{% static 'images/Loboc_river.png' %}" alt="Loboc_river" class="bd-placeholder-img" width="200"
-              height="250">
-
-          </div>
-          {% endcomment %}
         </div>
       </div>
 
@@ -81,34 +73,35 @@
   <main class="container">
     <div class="row">
       <div class="col-md-8">
-        <h3 class="pb-4 mb-4 font-italic border-bottom">
-          আজকের বিশেষ লেখা
-        </h3>
-
-        {% for all in context|slice:"5" %}
-
         <div class="blog-post">
-          <h2 class="blog-post-title">{{all.storyname}}</h2>
-          <p class="blog-post-meta"><strong>বিভাগ :</strong> {{all.content_type}} || <a href="{% url 'authpage' all.uniqueID %}">{{all.authorname}}</a>
-          </p>
+          <h2 class="blog-post-title">টিম শব্দাশ্ব</h2>
           <hr>
+          <p class="blog-post-meta">
+              <h3>অর্ঘ্য রায় চৌধুরী</h3>
+              <h3>রুবানা ফারাহ্ আদিবা</h3>
+              <h3>লীনা রায়চৌধুরী</h3>
+
+
+              <h3>উপদেষ্টামন্ডলী</h3>
+
+              <h3>কৌশিক চক্রবর্তী</h3>
+              <h3>পিয়াংকী মুখার্জি</h3>
+              <h3>রোবায়দা নাসরিন</h3>
+              <h3>আসিফ ইকবাল</h3>
+              <h3>জামান একুশে</h3>
+          </p>
 
           <p>{{all.content|linebreaks}}</p>
         </div><!-- Blog 2 -->
-
-        {% endfor %}
-
-        <nav class="blog-pagination">
-          <a class="btn btn-outline-primary" href="#">পুরনো</a>
-          <a class="btn btn-outline-secondary disabled" href="#" tabindex="-1" aria-disabled="true">নতুন</a>
-        </nav>
+        <hr>
 
       </div>
 
       <aside class="col-md-4">
         <div class="p-4 mb-3 bg-light rounded">
           <h4 class="font-italic">আমরা কারা ?</h4>
-          <p class="mb-0">শব্দাশ্বের প্রয়োজন হয়ে পড়েছিল এই কারনে, যে আমরা চেয়েছিলাম একসাথে বহু প্রতিভাবান লেখকের আত্মপ্রকাশ</p>
+          <p class="mb-0">শব্দাশ্বের প্রয়োজন হয়ে পড়েছিল এই কারনে, যে আমরা চেয়েছিলাম একসাথে বহু প্রতিভাবান লেখকের
+            আত্মপ্রকাশ</p>
           <a href="{% url 'aboutus' %}" class="mb-1">আরো পড়ুন...</a>
         </div>
 
